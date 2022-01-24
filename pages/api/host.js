@@ -1,7 +1,7 @@
 import axios from "axios";
 
-export let host = "";
-export let port = "";
+export let host = "http://localhost";
+export let port = "3000";
 
 export let headers = {
   "Content-Type": "application/json; charset=utf-8",

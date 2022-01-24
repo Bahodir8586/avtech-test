@@ -1,9 +1,18 @@
 import Head from "next/head";
 import WeatherComponent from "../../components/WeatherComponent";
 import { mockdata } from "../../mocks/data";
+import { getSingleDayWeather } from "../api";
 
 export async function getServerSideProps({ params }) {
-  // TODO: fetch weather data there
+  getSingleDayWeather(params.id).then((res) => {
+    if (res.status === 200) {
+      return {
+        props: {
+          data: [...res.data],
+        },
+      };
+    }
+  });
   const data = mockdata.find((el) => el.id.toString() === params.id);
   return {
     props: {
@@ -13,7 +22,6 @@ export async function getServerSideProps({ params }) {
 }
 
 export default function Day({ data }) {
-  console.log(data);
   return (
     <div>
       <Head>

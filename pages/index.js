@@ -2,9 +2,18 @@ import Head from "next/head";
 import Link from "next/link";
 import WeatherComponent from "../components/WeatherComponent";
 import { mockdata } from "../mocks/data";
+import { getMultiDayWeather } from "./api";
 
 export async function getServerSideProps() {
-  // TODO: fetch weather data there
+  getMultiDayWeather().then((res) => {
+    if (res.status === 200) {
+      return {
+        props: {
+          data: [...res.data],
+        },
+      };
+    }
+  });
   return {
     props: {
       data: [...mockdata],
