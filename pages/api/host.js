@@ -1,14 +1,14 @@
 import axios from "axios";
 
-export let host = "http://localhost";
-export let port = "3000";
+export let host = "https://api.openweathermap.org/data/2.5/";
+export let port = "";
 
 export let headers = {
   "Content-Type": "application/json; charset=utf-8",
 };
 
 export let axiosInstance = axios.create({
-  baseURL: port ? `${host}:${port}/api/` : `${host}/api/`,
+  baseURL: port ? `${host}:${port}/` : `${host}/`,
   headers,
 });
 
