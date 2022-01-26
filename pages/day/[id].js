@@ -26,8 +26,8 @@ export default function Day() {
       </h1>
       <div className="flex flex-wrap container mx-auto justify-between">
         {data?.map((el, index) => {
-          const dayId = index / 8;
-          if (dayId > currentDayId + 1) {
+          const dayId = (index / 8).toFixed();
+          if (dayId > currentDayId + 1 || dayId < currentDayId) {
             return;
           }
           return (

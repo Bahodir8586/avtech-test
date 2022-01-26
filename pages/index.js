@@ -24,11 +24,12 @@ export default function Home() {
       <div className="flex flex-wrap container mx-auto justify-between">
         {data?.map((el, index) => {
           const dayId = index % 8;
+          const dayNumber = (index / 8).toFixed();
           if (dayId !== 0) {
             return;
           }
           return (
-            <Link key={el.dt} href={`/day/${dayId}`} passHref>
+            <Link key={el.dt} href={`/day/${dayNumber}`} passHref>
               <div className="m-4">
                 <WeatherComponent data={el} hourly={false} />
               </div>
