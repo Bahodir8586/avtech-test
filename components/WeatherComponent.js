@@ -17,12 +17,10 @@ const WeatherComponent = ({ data, hourly }) => {
   ) {
     weatherType = "cloudly";
   }
-  console.log(data);
   return (
     <div className="w-64 bg-white rounded-md border shadow-lg h-72 px-5 py-3 cursor-pointer transition duration-200 hover:shadow-xl hover:scale-105">
       <div className="text-2xl text-center font-semibold">
         {hourly ? data?.dt_txt.split(" ")[1] : data?.dt_txt.split(" ")[0]}
-        {/* {data?.dt_txt} */}
       </div>
       <div className="text-center">
         <Image
