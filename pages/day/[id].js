@@ -14,7 +14,7 @@ export default function Day() {
       setData(res.data?.list);
       setDate(res.data?.list[currentDayId * 8]?.dt_txt.split(" ")[0]);
     });
-  }, []);
+  }, [currentDayId]);
   return (
     <div>
       <Head>
